@@ -2,39 +2,39 @@ import 'package:expenses/components/chart.dart';
 import 'package:expenses/components/transaction_form.dart';
 import 'package:expenses/models/transaction.dart';
 import 'package:flutter/material.dart';
-
 import 'dart:math';
-import 'package:expenses/models/transaction.dart';
 import 'components/transaction_form.dart';
 import 'components/transaction_list.dart';
 
-main() => runApp(ExpensesApp());
+main() => runApp(const ExpensesApp());
 
 class ExpensesApp extends StatelessWidget {
+  const ExpensesApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = ThemeData();
 
     return MaterialApp(
-      home: MyHomePage(),
+      home: const MyHomePage(),
       theme: theme.copyWith(
         colorScheme: theme.colorScheme.copyWith(
           primary: Colors.purple,
           secondary: Colors.amber,
         ),
         textTheme: theme.textTheme.copyWith(
-            headline6: TextStyle(
+            headline6: const TextStyle(
               fontFamily: 'Quicksand',
               fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
-            button: TextStyle(
+            button: const TextStyle(
               fontFamily: 'Quicksand',
               fontWeight: FontWeight.bold,
             ),
         ),
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
             fontFamily: 'OpenSans',
             fontSize: 20,
@@ -47,6 +47,8 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -58,14 +60,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return _transactions.where((tr) {
       return tr.date.isAfter(
         DateTime.now().subtract(
-          Duration(days: 7),
+          const Duration(days: 7),
         ),
       );
     }).toList();
   }
 
   _addTransaction(String title, double value, DateTime date) {
-    final newTransaction = new Transaction(
+    final newTransaction = Transaction(
       id: Random().nextDouble().toString(),
       title: title,
       value: value,
@@ -99,10 +101,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Despesas Pessoais'),
+        title: const Text('Despesas Pessoais'),
         actions: [
           IconButton(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             onPressed: () => _opentransactionFormModal(context),
           ),
         ],
@@ -117,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () => _opentransactionFormModal(context),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

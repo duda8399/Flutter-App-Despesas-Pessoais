@@ -54,13 +54,13 @@ class _TransactionFormState extends State<TransactionForm> {
             TextField(
               controller: _titleController,
               onSubmitted: (_) => _submitForm(),
-              decoration: InputDecoration(labelText: 'Título'),
+              decoration: const InputDecoration(labelText: 'Título'),
             ),
             TextField(
               controller: _valueController,
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(decimal: true),
               onSubmitted: (_) => _submitForm(),
-              decoration: InputDecoration(labelText: 'Valor (R\$)'),
+              decoration: const InputDecoration(labelText: 'Valor (R\$)'),
             ),
             Container(
               height: 70,
@@ -75,7 +75,7 @@ class _TransactionFormState extends State<TransactionForm> {
                   ),
                   TextButton(
                     onPressed: _showDatePicker,
-                    child: Text(
+                    child: const Text(
                       'Selecionar Data',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
